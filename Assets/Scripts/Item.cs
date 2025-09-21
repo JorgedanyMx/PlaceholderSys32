@@ -4,29 +4,36 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] FarmItem item;
+    [SerializeField] FarmItem farmItem;
     [SerializeField] GameObject currentModel;
     // Start is called before the first frame update
 
     void Start()
     {
-        item.ResetItem();
+        farmItem.ResetItem();
         UpdateModel();
+        StartCoroutine(CoUpdateLevel());
     }
-    private void OnEnable()
+    private void UpdateFarmItem()
     {
         if (currentModel != null)
         {
-            item.UpgradeItem();
+            farmItem.UpgradeItem();
             Destroy(currentModel);
             UpdateModel();
         }
-
     }
     private void UpdateModel()
     {
-        currentModel = Instantiate(item.GetModel());
+        currentModel = Instantiate(farmItem.GetModel());
         currentModel.transform.SetParent(transform);
         currentModel.transform.localPosition = Vector3.zero;
+    }
+    IEnumerator CoUpdateLevel()
+    {
+        // Esperar 1 segundo
+        yield return new WaitForSeconds(farmItem.GetBaseSpeed());
+        // Imprimir en consola
+        UpdateFarmItem();
     }
 }

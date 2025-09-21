@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FarmItem", menuName = "Farming/Item")]
 public class FarmItem : ScriptableObject
 {
-    [SerializeField]private Texture2D icon;
+    [SerializeField] public Texture2D icon;
     [SerializeField] public string ItemName="defaultItem";
     [SerializeField] private GameObject[] ModelsItem;
     [SerializeField] private float baseSpeed=1.0f;
@@ -28,6 +28,9 @@ public class FarmItem : ScriptableObject
         GameObject outputModel = null;
         outputModel = ModelsItem[currentLevel];
         return outputModel;
-
+    }
+    public float GetBaseSpeed()
+    {
+        return baseSpeed;
     }
 }

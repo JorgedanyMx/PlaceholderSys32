@@ -537,13 +537,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150492318}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.26962528, y: -0, z: -0, w: 0.96296537}
+  m_LocalPosition: {x: 0, y: 5.96, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 31.284, y: 0, z: 0}
 --- !u!114 &1150492322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,7 +658,7 @@ Transform:
   m_GameObject: {fileID: 1914798960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5893003, y: 1.176, z: 5.971}
+  m_LocalPosition: {x: 1.5893003, y: 1.176, z: 4.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8af34c71278e348bfb53ef7f013726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 7b636b282efc3f14b9ac0cbbfa07e11a, type: 2}
+  farmItem: {fileID: 0}
   currentModel: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
