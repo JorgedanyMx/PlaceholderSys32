@@ -4,33 +4,28 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FarmItem", menuName = "Farming/Item")]
 public class FarmItem : ScriptableObject
 {
-    [SerializeField] public Texture2D icon;
-    [SerializeField] public string ItemName="defaultItem";
+    [SerializeField] public Sprite icon;
+    [SerializeField] public string ItemName = "defaultItem";
     [SerializeField] private GameObject[] ModelsItem;
-    [SerializeField] private float baseSpeed=1.0f;
-    [SerializeField] private int currentLevel = 0;
-    private int MaxLevel = 0;
-    public void UpgradeItem()                //desabilita el model previo y habilita el actual
-    {
-        if (currentLevel < MaxLevel-1)
-        {
-            currentLevel++;
-            Debug.Log("ActualLeveld"+currentLevel);
-        }
-    }
+    [SerializeField] private float baseSpeed = 1.0f;
+    public float TimeToTakeIt= 2.0f;
+    [SerializeField] private int Prize = 5;
+
     public void ResetItem()
     {
-        currentLevel = 0;
-        MaxLevel = ModelsItem.Length;
+
     }
-    public GameObject GetModel()
+    public GameObject GetModel(int currentLevel)
     {
-        GameObject outputModel = null;
-        outputModel = ModelsItem[currentLevel];
+        GameObject outputModel = ModelsItem[currentLevel];
         return outputModel;
     }
     public float GetBaseSpeed()
     {
         return baseSpeed;
+    }
+    public int GetMaxLevel()
+    {
+        return ModelsItem.Length;   
     }
 }

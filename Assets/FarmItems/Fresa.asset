@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56e81deac391cb941830b7749e6a0785, type: 3}
-  m_Name: Carrot
+  m_Name: Fresa
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 5b747f58fc67ede41b76de75891fceb7, type: 3}
-  ItemName: Carrot
+  icon: {fileID: 21300000, guid: 1c06d5e84158151489b36c0c3032f9f1, type: 3}
+  ItemName: Fresa
   ModelsItem:
   - {fileID: 919132149155446097, guid: a2fe04198b7dc9b44943d3173bcdc72b, type: 3}
   - {fileID: 919132149155446097, guid: 11b8b3b77e83c504da89c4938dff5850, type: 3}
-  - {fileID: 919132149155446097, guid: f540ba792ae39c748bf0f7652274a5fa, type: 3}
-  baseSpeed: 2
-  currentLevel: 1
+  baseSpeed: 1
+  currentLevel: 0
+  Prize: 5

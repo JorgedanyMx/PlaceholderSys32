@@ -6,11 +6,13 @@ public class Item : MonoBehaviour
 {
     [SerializeField] FarmItem farmItem;
     [SerializeField] GameObject currentModel;
-    // Start is called before the first frame update
+    [SerializeField] private int currentLevel = 0;
+    private int maxLevel=0;
 
     void Start()
     {
         farmItem.ResetItem();
+        maxLevel = farmItem.GetMaxLevel();
         UpdateModel();
         StartCoroutine(CoUpdateLevel());
     }
@@ -18,22 +20,37 @@ public class Item : MonoBehaviour
     {
         if (currentModel != null)
         {
-            farmItem.UpgradeItem();
+            UpgradeItem();
             Destroy(currentModel);
             UpdateModel();
+            StartCoroutine(CoUpdateLevel());
         }
     }
     private void UpdateModel()
     {
-        currentModel = Instantiate(farmItem.GetModel());
+        currentModel = Instantiate(farmItem.GetModel(currentLevel));
         currentModel.transform.SetParent(transform);
         currentModel.transform.localPosition = Vector3.zero;
     }
-    IEnumerator CoUpdateLevel()
+    IEnumerator CoUpdateLevel() //Delay para actualizar el item
     {
-        // Esperar 1 segundo
         yield return new WaitForSeconds(farmItem.GetBaseSpeed());
-        // Imprimir en consola
         UpdateFarmItem();
+    }
+    void UpgradeItem()                //desabilita el model previo y habilita el actual
+    {
+        if (currentLevel < maxLevel - 1)
+        {
+            currentLevel++;
+            Debug.Log("ActualLeveld" + currentLevel);
+        }
+        else
+        {
+            Destroy(gameObject,farmItem.TimeToTakeIt);
+        }
+    }
+    public void SetFarmItem(FarmItem fItem)
+    {
+        farmItem = fItem;
     }
 }
