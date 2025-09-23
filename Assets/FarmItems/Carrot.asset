@@ -18,5 +18,6 @@ MonoBehaviour:
   - {fileID: 919132149155446097, guid: a2fe04198b7dc9b44943d3173bcdc72b, type: 3}
   - {fileID: 919132149155446097, guid: 11b8b3b77e83c504da89c4938dff5850, type: 3}
   - {fileID: 919132149155446097, guid: f540ba792ae39c748bf0f7652274a5fa, type: 3}
-  baseSpeed: 2
-  currentLevel: 1
+  baseSpeed: 0.1
+  TimeToTakeIt: 2
+  Prize: 20
