@@ -46,7 +46,7 @@ public class Item : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject,farmItem.TimeToTakeIt);
+            Destroy(gameObject,farmItem.TimeToTakeIt);//tiempo que tarda en desaparecer el item
         }
     }
     public void SetFarmItem(FarmItem fItem)
