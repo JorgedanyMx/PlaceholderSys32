@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerData : ScriptableObject
 {
-    private protected int currentMoney=20;
+    [SerializeField] private int currentMoney=20;
 
     public int GetCoins()
     {
@@ -23,6 +23,10 @@ public class PlayerData : ScriptableObject
         {
             return false;
         }
+    }
+    public void EarnCoins(int newCoins)
+    {
+        currentMoney += newCoins;
     }
     public void Reset()
     {

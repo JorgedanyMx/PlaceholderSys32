@@ -9,7 +9,7 @@ public class FarmItem : ScriptableObject
     [SerializeField] private GameObject[] ModelsItem;
     [SerializeField] private float baseSpeed = 1.0f;
     public float TimeToTakeIt= 2.0f;
-    [SerializeField] private int Prize = 5;
+    [SerializeField] public int Prize = 5;
 
     public void ResetItem()
     {

@@ -3,7 +3,11 @@ guid: ed8af34c71278e348bfb53ef7f013726
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - farmItem: {instanceID: 0}
+  - currentModel: {instanceID: 0}
+  - playerData: {fileID: 11400000, guid: 249f6a28241ee014e8cf690406c1e849, type: 2}
+  - UpdateCoins: {fileID: 11400000, guid: cd58912e6755063489899946c86bb09b, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

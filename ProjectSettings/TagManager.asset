@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ItemUI
   - Ground
+  - Item3D
   layers:
   - Default
   - TransparentFX

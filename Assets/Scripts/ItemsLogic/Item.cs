@@ -8,6 +8,9 @@ public class Item : MonoBehaviour
     [SerializeField] GameObject currentModel;
     [SerializeField] private int currentLevel = 0;
     private int maxLevel=0;
+    public bool isReady=false;
+    [SerializeField] PlayerData playerData;
+    [SerializeField] GameEvent UpdateCoins;
 
     void Start()
     {
@@ -20,21 +23,18 @@ public class Item : MonoBehaviour
     {
         if (currentModel != null)
         {
-            UpgradeItem();
             Destroy(currentModel);
-            UpdateModel();
-            StartCoroutine(CoUpdateLevel());
+            UpgradeItem();
         }
     }
     private void UpdateModel()
     {
-        currentModel = Instantiate(farmItem.GetModel(currentLevel));
-        currentModel.transform.SetParent(transform);
-        currentModel.transform.localPosition = Vector3.zero;
+        InstantiateNewItem();
     }
     IEnumerator CoUpdateLevel() //Delay para actualizar el item
     {
         yield return new WaitForSeconds(farmItem.GetBaseSpeed());
+        Debug.Log("Esta aumentandooo");
         UpdateFarmItem();
     }
     void UpgradeItem()                //desabilita el model previo y habilita el actual
@@ -42,15 +42,34 @@ public class Item : MonoBehaviour
         if (currentLevel < maxLevel - 1)
         {
             currentLevel++;
-            Debug.Log("ActualLeveld" + currentLevel);
+            UpdateModel();
+            StartCoroutine(CoUpdateLevel());
         }
         else
         {
+            InstantiateNewItem();
+            StopAllCoroutines();
+            isReady = true;
             Destroy(gameObject,farmItem.TimeToTakeIt);//tiempo que tarda en desaparecer el item
         }
     }
     public void SetFarmItem(FarmItem fItem)
     {
         farmItem = fItem;
+    }
+    private void OnMouseDown()
+    {
+        if (isReady)
+        {
+            playerData.EarnCoins(farmItem.Prize*2);
+            UpdateCoins.Raise();
+            Destroy(gameObject);
+        }
+    }
+    void InstantiateNewItem()
+    {
+        currentModel = Instantiate(farmItem.GetModel(currentLevel));
+        currentModel.transform.SetParent(transform);
+        currentModel.transform.localPosition = Vector3.zero;
     }
 }

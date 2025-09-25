@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 217716722071630509}
   - component: {fileID: 4739316937849661333}
+  - component: {fileID: 1747879717749568321}
   m_Layer: 0
   m_Name: Item3D
-  m_TagString: Untagged
+  m_TagString: Item3D
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,3 +48,27 @@ MonoBehaviour:
   farmItem: {fileID: 0}
   currentModel: {fileID: 0}
   currentLevel: 0
+  isReady: 0
+  playerData: {fileID: 11400000, guid: 249f6a28241ee014e8cf690406c1e849, type: 2}
+  UpdateCoins: {fileID: 11400000, guid: cd58912e6755063489899946c86bb09b, type: 2}
+--- !u!65 &1747879717749568321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637308972971829015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8, y: 2, z: 0.8}
+  m_Center: {x: 0, y: 0, z: 0}

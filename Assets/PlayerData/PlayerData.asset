@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287db3456d5fb714780e7d4e92568e76, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  isDragging: 0
-  currentItem: {fileID: 0}
+  currentMoney: 20

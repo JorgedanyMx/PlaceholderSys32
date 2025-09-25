@@ -11,9 +11,11 @@ public class PlayerControler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public Camera uiCamera;
     [SerializeField] GameObject prefabitemUI;
     [SerializeField] GameObject draggableItem=null;
+    [SerializeField] PlayerData playerData;
     private void Awake()
     {
         uiRaycaster=GetComponent<GraphicRaycaster>();
+        playerData.Reset();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -32,7 +34,7 @@ public class PlayerControler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             }
         }
     }
-    public void OnDrag(PointerEventData eventData)
+    public void OnDrag(PointerEventData eventData)              //arrastra la imagen a la tierra
     {
 
         if (draggableItem != null)
@@ -41,7 +43,7 @@ public class PlayerControler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         }
 
     }
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnEndDrag(PointerEventData eventData)           //Manda un Raycast hacia la tierra
     {
         if (draggableItem != null)
         {
@@ -51,7 +53,6 @@ public class PlayerControler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             {
                 if (hit.collider.CompareTag("Ground"))
                 {
-                    Debug.Log("Hit Ground 3D object: " + hit.collider.name);
                     hit.transform.gameObject.GetComponent<Ground>().SpawnItem(draggableItem.GetComponent<ItemUI>().GetItem());      //Manda la info del item a la tierra
                 }
             }
