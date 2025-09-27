@@ -68,8 +68,14 @@ public class Item : MonoBehaviour
     }
     void InstantiateNewItem()
     {
-        currentModel = Instantiate(farmItem.GetModel(currentLevel));
-        currentModel.transform.SetParent(transform);
-        currentModel.transform.localPosition = Vector3.zero;
+        GameObject tmp=null;
+        tmp = farmItem.GetModel(currentLevel);
+        if (tmp != null)
+        {
+            currentModel = Instantiate(tmp);
+            currentModel.transform.SetParent(transform);
+            currentModel.transform.localPosition = Vector3.zero;
+        }
+        
     }
 }

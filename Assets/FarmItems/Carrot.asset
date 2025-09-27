@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e81deac391cb941830b7749e6a0785, type: 3}
   m_Name: Carrot
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 5b747f58fc67ede41b76de75891fceb7, type: 3}
+  icon: {fileID: 1896945282, guid: 0b9af153b0d30ee4bbaa4fd02223e898, type: 3}
   ItemName: Carrot
   ModelsItem:
-  - {fileID: 919132149155446097, guid: a2fe04198b7dc9b44943d3173bcdc72b, type: 3}
-  - {fileID: 919132149155446097, guid: 11b8b3b77e83c504da89c4938dff5850, type: 3}
-  - {fileID: 919132149155446097, guid: f540ba792ae39c748bf0f7652274a5fa, type: 3}
-  baseSpeed: 0.1
+  - {fileID: 3095565217221796215, guid: cdd978405514c14438db21a8464fb222, type: 3}
+  - {fileID: 6049677391757927350, guid: f3de0b8afa382664b9726501f45f9abb, type: 3}
+  - {fileID: 2960795867897212659, guid: 995c1c099ee787f448698d0276f36949, type: 3}
+  rottenItem: {fileID: 5687947936691081653, guid: 315c00344f6d6c343865231437ca65f4,
+    type: 3}
+  creepyModel: {fileID: 1034969799857265506, guid: 53867561f800d52469ec6a9e142907f1,
+    type: 3}
+  baseSpeed: 1
+  creepyCounter: 3
   TimeToTakeIt: 10
-  Prize: 20
+  Prize: 5

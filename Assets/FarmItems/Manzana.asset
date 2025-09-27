@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e81deac391cb941830b7749e6a0785, type: 3}
+  m_Name: Manzana
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1022435419, guid: 0b9af153b0d30ee4bbaa4fd02223e898, type: 3}
+  ItemName: Manzana
+  ModelsItem:
+  - {fileID: 4605049703973342170, guid: b615d9f25ceaa154794c25b99468d066, type: 3}
+  - {fileID: 4666103081765630843, guid: db3f769fe2e687647abec46bcaf8a7b2, type: 3}
+  - {fileID: 407163742365266495, guid: fa8f05f7438166a42b69f29adfc00b09, type: 3}
+  rottenItem: {fileID: 5687947936691081653, guid: 315c00344f6d6c343865231437ca65f4,
+    type: 3}
+  creepyModel: {fileID: 3828334846194593563, guid: 06ebdc8e66ac3d34394cce6bd7e2fe47,
+    type: 3}
+  baseSpeed: 1
+  creepyCounter: 3
+  TimeToTakeIt: 2
+  Prize: 5

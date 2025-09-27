@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     [SerializeField] private int currentMoney=20;
+    public int levels = 0;
 
     public int GetCoins()
     {
@@ -31,5 +32,6 @@ public class PlayerData : ScriptableObject
     public void Reset()
     {
         currentMoney = 20;
+        levels = 0;
     }
 }

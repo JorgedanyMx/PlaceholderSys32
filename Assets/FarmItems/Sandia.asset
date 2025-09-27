@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e81deac391cb941830b7749e6a0785, type: 3}
+  m_Name: Sandia
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1083224460, guid: 0b9af153b0d30ee4bbaa4fd02223e898, type: 3}
+  ItemName: Sandia
+  ModelsItem:
+  - {fileID: 3820919622457944373, guid: ba89de5345ee34746ac67c5e0533fc66, type: 3}
+  - {fileID: 8626434807606031140, guid: a8abb907dde40ed45975adc6f9d31ae4, type: 3}
+  - {fileID: 2931448057169455296, guid: 0a640cd527cd74c44be4d9a811050590, type: 3}
+  rottenItem: {fileID: 5687947936691081653, guid: 315c00344f6d6c343865231437ca65f4,
+    type: 3}
+  creepyModel: {fileID: 6813498568972190990, guid: be6a9d1fee5322c4295feef2563833a5,
+    type: 3}
+  baseSpeed: 10
+  creepyCounter: 3
+  TimeToTakeIt: 10
+  Prize: 5
