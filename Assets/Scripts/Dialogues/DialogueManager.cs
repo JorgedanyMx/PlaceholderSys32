@@ -15,22 +15,27 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI avatarName; //Elemento UI del nombre del personaje
 
     public RectTransform backgroundBox;
-    private int tempTime;
+    private float tempTime;
     public GameObject messageInPosition;
     public GameObject messageOutPosition;
     
     public LeanTweenType easeInType;
     public LeanTweenType easeOutType;
-    
-    
-    
+
+    [SerializeField] GameEvent startEvent;
+
+    private void Start()
+    {
+        startEvent.Raise();
+    }
+
     public void GetRandomMessage() //Obtiene un mensaje al azar, mismo index se usa para mostrar el avatar correspondiente
     {
         var index = Random.Range(0, Messages.Length);
         var message = Messages[index];
         messageText.text = message.MessageString;
         avatarImage.sprite = Avatars[index];
-        avatarName.text = Messages[index].characterName; //Mismo indice de mensaje debe corresponder a la imagen a mostrar
+        //avatarName.text = Messages[index].characterName; //Mismo indice de mensaje debe corresponder a la imagen a mostrar
         tempTime = Messages[index].time;
         ShowMessage();
     }
@@ -40,7 +45,15 @@ public class DialogueManager : MonoBehaviour
         LeanTween.move(backgroundBox.gameObject,messageInPosition.transform,1.0f).setEase(easeInType).setOnComplete(HideMessage);
         Debug.Log("Showing Message");
     }
-
+    public void GetMessage(Dialogs dialog)
+    {
+        var index = Random.Range(0, Messages.Length);
+        messageText.text = dialog.text;
+        avatarImage.sprite = dialog.sprite;
+        //avatarName.text = Messages[index].characterName; //Mismo indice de mensaje debe corresponder a la imagen a mostrar
+        tempTime = dialog.time;
+        ShowMessage();
+    }
     public void HideMessage()
     {
         LeanTween.delayedCall(3.0f,
@@ -48,12 +61,8 @@ public class DialogueManager : MonoBehaviour
             {
                 Debug.Log("Now Hiding Message");
                 LeanTween.move(backgroundBox.gameObject, messageOutPosition.transform, 1.0f).setEase(easeOutType);
-
             });
-
-    }
-
-
+    }   
 }
 
 [System.Serializable]

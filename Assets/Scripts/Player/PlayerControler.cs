@@ -12,8 +12,12 @@ public class PlayerControler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     [SerializeField] GameObject prefabitemUI;
     [SerializeField] GameObject draggableItem=null;
     [SerializeField] PlayerData playerData;
+    [SerializeField] FarmItem[] farmItems;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] audioClips;
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         uiRaycaster=GetComponent<GraphicRaycaster>();
         playerData.Reset();
     }
@@ -31,6 +35,7 @@ public class PlayerControler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 draggableItem.transform.SetParent(transform);
                 draggableItem.transform.localScale = Vector3.one * .5f;
                 draggableItem.GetComponent<ItemUI>().SetFarmItem(itemResult.GetItem());
+                draggableItem.GetComponent<ItemUI>().HidePrize();
             }
         }
     }
@@ -58,5 +63,11 @@ public class PlayerControler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             }
             Destroy(draggableItem);
         }
+    }
+    void playSFX(AudioClip clip)
+    {
+        float pitchoffset = Random.Range(0f, .4f);
+        audioSource.pitch = .8f + pitchoffset;
+        audioSource.PlayOneShot(clip);
     }
 }

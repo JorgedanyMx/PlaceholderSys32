@@ -11,13 +11,19 @@ public class Item : MonoBehaviour
     public bool isReady=false;
     [SerializeField] PlayerData playerData;
     [SerializeField] GameEvent UpdateCoins;
-
+    [SerializeField] AudioSource audioItem;
+    [SerializeField] AudioClip[] audioclips;
+    bool isCreepy = false;
+    [Header("CreepyEvent")]
+    [SerializeField] GameEvent CreepyEvent;
     void Start()
     {
-        farmItem.ResetItem();
+        audioItem = GetComponent<AudioSource>();
         maxLevel = farmItem.GetMaxLevel();
         UpdateModel();
         StartCoroutine(CoUpdateLevel());
+        playSFX(audioclips[0]);
+
     }
     private void UpdateFarmItem()
     {
@@ -34,11 +40,11 @@ public class Item : MonoBehaviour
     IEnumerator CoUpdateLevel() //Delay para actualizar el item
     {
         yield return new WaitForSeconds(farmItem.GetBaseSpeed());
-        Debug.Log("Esta aumentandooo");
         UpdateFarmItem();
     }
     void UpgradeItem()                //desabilita el model previo y habilita el actual
     {
+        playSFX(audioclips[1]);
         if (currentLevel < maxLevel - 1)
         {
             currentLevel++;
@@ -47,9 +53,10 @@ public class Item : MonoBehaviour
         }
         else
         {
+            isReady = true;
+            isCreepy = farmItem.UpdateCounter();
             InstantiateNewItem();
             StopAllCoroutines();
-            isReady = true;
             Destroy(gameObject,farmItem.TimeToTakeIt);//tiempo que tarda en desaparecer el item
         }
     }
@@ -70,12 +77,24 @@ public class Item : MonoBehaviour
     {
         GameObject tmp=null;
         tmp = farmItem.GetModel(currentLevel);
+
         if (tmp != null)
         {
+            if (isReady & isCreepy)
+            {
+                tmp = farmItem.creepyModel;
+                CreepyEvent.Raise();
+                Debug.Log("farm es: " + isReady + " y creepy: " + isCreepy);
+            }
             currentModel = Instantiate(tmp);
             currentModel.transform.SetParent(transform);
             currentModel.transform.localPosition = Vector3.zero;
         }
-        
+    }
+    void playSFX(AudioClip clip)
+    {
+        float pitchoffset = Random.Range(0f, .4f);
+        audioItem.pitch = .8f + pitchoffset;
+        audioItem.PlayOneShot(clip);
     }
 }

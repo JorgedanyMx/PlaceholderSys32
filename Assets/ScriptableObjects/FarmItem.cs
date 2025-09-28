@@ -11,7 +11,7 @@ public class FarmItem : ScriptableObject
     public GameObject creepyModel;
     [SerializeField] private float baseSpeed = 1.0f;
     [SerializeField] int creepyCounter=3;
-    private int currentCreepyCounter = 0;
+    [SerializeField] private int currentCreepyCounter = 0;
     public float TimeToTakeIt= 2.0f;
     [SerializeField] public int Prize = 5;
     
@@ -22,17 +22,8 @@ public class FarmItem : ScriptableObject
     }
     public GameObject GetModel(int currentLevel)
     {
-        currentCreepyCounter++; 
-        if ((currentCreepyCounter % creepyCounter) == 0)
-        {
-            return creepyModel;
-        }
-        else
-        {
-            GameObject outputModel = ModelsItem[currentLevel];
-            return outputModel;
-        }
-
+        GameObject outputModel = ModelsItem[currentLevel];
+        return outputModel;
     }
     public float GetBaseSpeed()
     {
@@ -41,5 +32,18 @@ public class FarmItem : ScriptableObject
     public int GetMaxLevel()
     {
         return ModelsItem.Length;   
+    }
+    public bool UpdateCounter()
+    {
+        if (creepyModel == null)
+        {
+            return false;
+        }
+        if (creepyCounter == 0)
+        {
+            return false;
+        }
+        currentCreepyCounter++;
+        return currentCreepyCounter % creepyCounter == 0;
     }
 }

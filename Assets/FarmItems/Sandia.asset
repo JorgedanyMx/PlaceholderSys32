@@ -22,7 +22,7 @@ MonoBehaviour:
     type: 3}
   creepyModel: {fileID: 6813498568972190990, guid: be6a9d1fee5322c4295feef2563833a5,
     type: 3}
-  baseSpeed: 10
+  baseSpeed: 1
   creepyCounter: 3
   TimeToTakeIt: 10
   Prize: 5

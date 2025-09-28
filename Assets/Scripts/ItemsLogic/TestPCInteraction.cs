@@ -8,6 +8,7 @@ using System.IO;
 public class TestPCInteraction : MonoBehaviour
 {
     string desktopPath = "";
+    [SerializeField] Texture2D tex;
     void Awake()
     {
         desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -17,6 +18,7 @@ public class TestPCInteraction : MonoBehaviour
     private void OnEnable()
     {
         Debug.Log("Usuario del SO:"+GetUser());
+        SaveImage();
     }
 
     private String GetUser()
@@ -30,14 +32,14 @@ public class TestPCInteraction : MonoBehaviour
         string filePath = Path.Combine(desktopPath, "screenshot.png");
 
         // Capturar la pantalla
-        Texture2D tex = ScreenCapture.CaptureScreenshotAsTexture();
-        byte[] bytes = tex.EncodeToPNG();
+        //tex = ScreenCapture.CaptureScreenshotAsTexture();
+        byte[] bytes = tex.EncodeToJPG();
         File.WriteAllBytes(filePath, bytes);
 
         Debug.Log("Imagen guardada en: " + filePath);
 
-        // Liberar memoria
-        Destroy(tex);
+        // Liberar memoria si es una SS
+        //Destroy(tex);
     }
     private void SaveTxt()
     {
