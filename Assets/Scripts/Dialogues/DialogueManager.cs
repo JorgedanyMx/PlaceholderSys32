@@ -15,6 +15,14 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI avatarName; //Elemento UI del nombre del personaje
 
     public RectTransform backgroundBox;
+    private int tempTime;
+    public GameObject messageInPosition;
+    public GameObject messageOutPosition;
+    
+    public LeanTweenType easeInType;
+    public LeanTweenType easeOutType;
+    
+    
     
     public void GetRandomMessage() //Obtiene un mensaje al azar, mismo index se usa para mostrar el avatar correspondiente
     {
@@ -22,16 +30,36 @@ public class DialogueManager : MonoBehaviour
         var message = Messages[index];
         messageText.text = message.MessageString;
         avatarImage.sprite = Avatars[index];
-        avatarName.text = Messages[index].characterName;
-        
-        //Mismo indice de mensaje debe corresponder a la imagen a mostrar
+        avatarName.text = Messages[index].characterName; //Mismo indice de mensaje debe corresponder a la imagen a mostrar
+        tempTime = Messages[index].time;
+        ShowMessage();
     }
-    
+
+    public void ShowMessage()
+    {
+        LeanTween.move(backgroundBox.gameObject,messageInPosition.transform,1.0f).setEase(easeInType).setOnComplete(HideMessage);
+        Debug.Log("Showing Message");
+    }
+
+    public void HideMessage()
+    {
+        LeanTween.delayedCall(3.0f,
+            () =>
+            {
+                Debug.Log("Now Hiding Message");
+                LeanTween.move(backgroundBox.gameObject, messageOutPosition.transform, 1.0f).setEase(easeOutType);
+
+            });
+
+    }
+
+
 }
 
 [System.Serializable]
 public class Message //Contiene el mensaje a mostrar asi como el nombre del personaje (por si decidimos cursearlo)
 {
+    public int time;
     public string characterName;
     public string MessageString;    
 }
