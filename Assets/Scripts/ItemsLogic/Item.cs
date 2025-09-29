@@ -17,6 +17,7 @@ public class Item : MonoBehaviour
     [Header("CreepyEvent")]
     [SerializeField] GameEvent CreepyEvent;
     public GameEvent MessageAudioEvent;
+    public GameEvent FinalEvent;
     void Start()
     {
         audioItem = GetComponent<AudioSource>();
@@ -54,7 +55,7 @@ public class Item : MonoBehaviour
         }
         else
         {
-            if (farmItem.ItemName.CompareTo("Carrot")!=1)
+            if (farmItem.ItemName.Equals("Carrot"))
             {
                 Debug.Log("Carrot");
                 if (farmItem.currentCreepyCounter == 6)
@@ -62,12 +63,20 @@ public class Item : MonoBehaviour
                     playerData.ProgressHistory(6);
                 }
             }
-            if (farmItem.ItemName.CompareTo("Apple") != 1)
+            if (farmItem.ItemName.Equals("Apple"))
             {
                 Debug.Log("Apple");
                 if (farmItem.currentCreepyCounter == 6)
                 {
                     playerData.ProgressHistory(7);
+                }
+            }
+            if (farmItem.ItemName.Equals("WaterMelon"))
+            {
+                Debug.Log("Sandia");
+                if (farmItem.currentCreepyCounter == 1)
+                {
+                    FinalEvent.Raise();
                 }
             }
             CheckFirstItem();

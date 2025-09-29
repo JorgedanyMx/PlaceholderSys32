@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f12b22a7e8205e746b73f226f668bada, type: 3}
   CreepyEvent: {fileID: 11400000, guid: b20de9a21ed42704f93a73136c8efe47, type: 2}
   MessageAudioEvent: {fileID: 11400000, guid: e12cf73658e51154b8ad438af4832a6a, type: 2}
+  FinalEvent: {fileID: 11400000, guid: 4ff444939f339e74cace12598613c911, type: 2}
 --- !u!65 &1747879717749568321
 BoxCollider:
   m_ObjectHideFlags: 0
