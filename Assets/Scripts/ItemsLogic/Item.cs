@@ -16,6 +16,7 @@ public class Item : MonoBehaviour
     bool isCreepy = false;
     [Header("CreepyEvent")]
     [SerializeField] GameEvent CreepyEvent;
+    public GameEvent MessageAudioEvent;
     void Start()
     {
         audioItem = GetComponent<AudioSource>();
@@ -53,6 +54,23 @@ public class Item : MonoBehaviour
         }
         else
         {
+            if (farmItem.ItemName.CompareTo("Carrot")!=1)
+            {
+                Debug.Log("Carrot");
+                if (farmItem.currentCreepyCounter == 6)
+                {
+                    playerData.ProgressHistory(6);
+                }
+            }
+            if (farmItem.ItemName.CompareTo("Apple") != 1)
+            {
+                Debug.Log("Apple");
+                if (farmItem.currentCreepyCounter == 6)
+                {
+                    playerData.ProgressHistory(7);
+                }
+            }
+            CheckFirstItem();
             isReady = true;
             isCreepy = farmItem.UpdateCounter();
             InstantiateNewItem();
@@ -70,6 +88,7 @@ public class Item : MonoBehaviour
         {
             playerData.EarnCoins(farmItem.Prize*2);
             UpdateCoins.Raise();
+            MessageAudioEvent.Raise();
             Destroy(gameObject);
         }
     }
@@ -84,7 +103,7 @@ public class Item : MonoBehaviour
             {
                 tmp = farmItem.creepyModel;
                 CreepyEvent.Raise();
-                Debug.Log("farm es: " + isReady + " y creepy: " + isCreepy);
+                //Debug.Log("farm es: " + isReady + " y creepy: " + isCreepy);
             }
             currentModel = Instantiate(tmp);
             currentModel.transform.SetParent(transform);
@@ -96,5 +115,13 @@ public class Item : MonoBehaviour
         float pitchoffset = Random.Range(0f, .4f);
         audioItem.pitch = .8f + pitchoffset;
         audioItem.PlayOneShot(clip);
+    }
+    void CheckFirstItem()
+    {
+        if (playerData.isFirstItem)
+        {
+            playerData.isFirstItem = false;
+            playerData.ProgressHistory(5);
+        }
     }
 }

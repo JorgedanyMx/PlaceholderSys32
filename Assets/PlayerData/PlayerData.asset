@@ -12,4 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287db3456d5fb714780e7d4e92568e76, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  currentMoney: 20
+  currentMoney: 45
+  UpdateUI: {fileID: 11400000, guid: cd58912e6755063489899946c86bb09b, type: 2}
+  levels: 5
+  creepyEvents:
+  - {fileID: 11400000, guid: c0ad827872a08cf4d884390640aa80a9, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 933aa44559e18864c87176a7579be94d, type: 2}
+  - {fileID: 11400000, guid: 34e557b2ecd5b574bb36e76e856499ec, type: 2}
+  - {fileID: 11400000, guid: aff631ef78c95b7489217464094f91b4, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  isFirstItem: 0
+  isFirstUnlock: 1
+  isCreepy: 0
+  currentCreepyLevel: 1

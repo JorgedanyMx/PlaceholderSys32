@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sandia
   m_EditorClassIdentifier: 
   icon: {fileID: 1083224460, guid: 0b9af153b0d30ee4bbaa4fd02223e898, type: 3}
-  ItemName: Sandia
+  ItemName: WaterMelon
   ModelsItem:
   - {fileID: 3820919622457944373, guid: ba89de5345ee34746ac67c5e0533fc66, type: 3}
   - {fileID: 8626434807606031140, guid: a8abb907dde40ed45975adc6f9d31ae4, type: 3}
@@ -23,6 +23,7 @@ MonoBehaviour:
   creepyModel: {fileID: 6813498568972190990, guid: be6a9d1fee5322c4295feef2563833a5,
     type: 3}
   baseSpeed: 1
-  creepyCounter: 3
-  TimeToTakeIt: 10
+  creepyCounter: 5
+  currentCreepyCounter: 0
+  TimeToTakeIt: 2
   Prize: 5

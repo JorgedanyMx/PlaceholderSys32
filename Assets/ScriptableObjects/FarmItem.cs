@@ -4,14 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FarmItem", menuName = "Farming/Item")]
 public class FarmItem : ScriptableObject
 {
-    [SerializeField] public Sprite icon;
-    [SerializeField] public string ItemName = "defaultItem";
+    public Sprite icon;
+    public string ItemName = "defaultItem";
     [SerializeField] private GameObject[] ModelsItem;
     [SerializeField] public GameObject rottenItem;
     public GameObject creepyModel;
     [SerializeField] private float baseSpeed = 1.0f;
     [SerializeField] int creepyCounter=3;
-    [SerializeField] private int currentCreepyCounter = 0;
+    public int currentCreepyCounter = 0;
     public float TimeToTakeIt= 2.0f;
     [SerializeField] public int Prize = 5;
     

@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public AudioSource audioSource;
+    public AudioClip[] clips;
+    public void Playsound(int idx)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        float pitchoffset = Random.Range(0f, .4f);
+        audioSource.pitch = .8f + pitchoffset;
+        audioSource.PlayOneShot(clips[idx]);
     }
 }

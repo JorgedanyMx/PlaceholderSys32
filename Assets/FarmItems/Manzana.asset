@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Manzana
   m_EditorClassIdentifier: 
   icon: {fileID: 1022435419, guid: 0b9af153b0d30ee4bbaa4fd02223e898, type: 3}
-  ItemName: Manzana
+  ItemName: Apple
   ModelsItem:
   - {fileID: 4605049703973342170, guid: b615d9f25ceaa154794c25b99468d066, type: 3}
   - {fileID: 4666103081765630843, guid: db3f769fe2e687647abec46bcaf8a7b2, type: 3}
@@ -24,5 +24,6 @@ MonoBehaviour:
     type: 3}
   baseSpeed: 1
   creepyCounter: 3
+  currentCreepyCounter: 0
   TimeToTakeIt: 2
   Prize: 5
